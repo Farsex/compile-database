@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# compiledatabase <img src="figures/readme/compendium-sticker.png" align="right" style="float:right; height:120px;"/>
+# Compile FARsex Database <img src="https://raw.githubusercontent.com/FRBCesab/templates/main/logos/compendium-sticker.png" align="right" style="float:right; height:120px;"/>
 
 <!-- badges: start -->
 
@@ -51,13 +51,13 @@ The analysis pipeline follows these steps:
 
 This repository is structured as follow:
 
-- [`DESCRIPTION`](https://github.com/farsex/compiledatabase/tree/main/DESCRIPTION):
+- [`DESCRIPTION`](https://github.com/farsex/compile-database/tree/main/DESCRIPTION):
   contains project metadata (authors, date, dependencies, etc.)
 
-- [`make.R`](https://github.com/farsex/compiledatabase/tree/main/make.R):
+- [`make.R`](https://github.com/farsex/compile-database/tree/main/make.R):
   main R script to run the entire project
 
-- [`R/`](https://github.com/farsex/compiledatabase/tree/main/R):
+- [`R/`](https://github.com/farsex/compile-database/tree/main/R):
   contains R functions developed especially for this project
 
 **{{ LIST ADDITIONAL FILES/FOLDER }}**
@@ -77,7 +77,7 @@ To install this compendium:
 ## Usage
 
 Launch the
-[`make.R`](https://github.com/farsex/compiledatabase/tree/main/make.R)
+[`make.R`](https://github.com/farsex/compile-database/tree/main/make.R)
 file with:
 
 ``` r
@@ -101,7 +101,7 @@ Please use the following citation:
 
 All types of contributions are encouraged and valued. For more
 information, check out our [Contributor
-Guidelines](https://github.com/farsex/compiledatabase/blob/main/CONTRIBUTING.md).
+Guidelines](https://github.com/farsex/compile-database/blob/main/CONTRIBUTING.md).
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
