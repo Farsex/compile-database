@@ -2,6 +2,15 @@
 #'
 #' @param x a `character` of length 1. The name to look for?
 #'
+#' @return A `data.frame` with 1 row and the following columns:
+#'   - `original_name`
+#'   - `accepted_name`
+#'   - `aphia_id`
+#'   - `kingdom`
+#'   - `phylum`
+#'   - `class`
+#'   - `order`
+#'
 #' @export
 #'
 #' @examples
