@@ -1,0 +1,11 @@
+DATABASE: nefsc_bottomtrawl_fall
+
+Description                      Number
+-----------------------------  --------
+Initial rows                     697608
+Final rows                       585686
+Initial species                     221
+Final species                       126
+Filter: rows w/ no taxonomy          48
+Filter: rows w/ no sex           111899
+Filter: rows w/ no age                0
