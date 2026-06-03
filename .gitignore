@@ -20,5 +20,7 @@
 README.html
 inst/doc
 data/*
+!data/basemap
 .Rbuildignore
 man/
+outputs/
