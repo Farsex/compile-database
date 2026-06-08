@@ -9,15 +9,66 @@ x <- readr::read_csv(here::here(
   as.data.frame()
 
 
-clean_data <- readxl::read_xlsx(here::here("database_template.xlsx")) |>
-  as.data.frame()
+cols <- c(
+  "database",
+  "reference_id",
+  "original_row_identifier",
+  "original_binomial_name",
+  "original_taxonomy_info",
+  "number_female",
+  "number_male",
+  "number_intersex",
+  "proportion_of_males",
+  "n_total",
+  "sexing_method_phenotypic",
+  "original_life_stage",
+  "maturity_stage",
+  "maturity_stage_scale",
+  "number_concordant_females",
+  "number_concordant_males",
+  "number_reversed_females",
+  "number_reversed_males",
+  "number_yy_ww",
+  "original_age",
+  "original_age_unit",
+  "original_body_size",
+  "original_body_size_type",
+  "original_body_size_unit",
+  "original_body_mass",
+  "original_body_mass_type",
+  "original_body_mass_unit",
+  "biological_scale",
+  "latitude_start",
+  "longitude_start",
+  "latitude_end",
+  "longitude_end",
+  "asl",
+  "location",
+  "date_start",
+  "date_end",
+  "day_start",
+  "day_end",
+  "month_start",
+  "month_end",
+  "year_start",
+  "year_end",
+  "time_start",
+  "time_end",
+  "surface_temperature",
+  "bottom_temperature",
+  "surface_salinity",
+  "bottom_salinity",
+  "capture_method"
+)
 
 
-tmp <- as.data.frame(matrix(NA, ncol = ncol(clean_data), nrow = nrow(x)))
-colnames(tmp) <- colnames(clean_data)
+tmp <- as.data.frame(matrix(NA, ncol = length(cols), nrow = nrow(x)))
+colnames(tmp) <- cols
 
-tmp$"origin_dataset_name" <- "NOAA ALASKA"
+
+tmp$"database" <- "NOAA ALASKA"
 tmp$"reference_id" <- x$"SURVEY_NAME"
+tmp$"original_row_identifier" <- 1:nrow(x)
 
 tmp$"original_binomial_name" <- x$"SPECIES_NAME"
 
@@ -48,9 +99,9 @@ tmp$"year_start" <- substr(tmp$"date_start", 1, 4)
 tmp$"month_start" <- substr(tmp$"date_start", 6, 7)
 tmp$"day_start" <- substr(tmp$"date_start", 9, 10)
 
-tmp$"asl" <- x$"DEPTH_M"
+tmp$"asl" <- -1 * x$"DEPTH_M"
 
-tmp$"temperature" <- x$"SURFACE_TEMPERATURE_C"
+tmp$"surface_temperature" <- x$"SURFACE_TEMPERATURE_C"
 
 tmp$"longitude_start" <- x$"LONGITUDE_DD_START"
 tmp$"longitude_end" <- x$"LONGITUDE_DD_END"
@@ -92,3 +143,7 @@ for (i in 1:length(tabs)) {
     }
   }
 }
+
+tmp$"maturity_stage" <- x$"MATURITY"
+
+write.csv(tmp, here::here("outputs", "ALASKA.csv"), row.names = FALSE)
