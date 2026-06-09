@@ -88,6 +88,7 @@ for (year in years) {
     individual$"HaulKey.x",
     sep = "-"
   )
+
   tmp$"original_row_identifier" <- individual$"Individual"
   tmp$"original_binomial_name" <- individual$"Scientific"
 
@@ -131,3 +132,94 @@ for (year in years) {
 
   final <- rbind(final, tmp)
 }
+
+
+cols <- c(
+  "database",
+  "reference_id",
+  "original_row_identifier",
+  "original_binomial_name",
+  "original_taxonomy_info",
+  "number_female",
+  "number_male",
+  "number_intersex",
+  "proportion_of_males",
+  "n_total",
+  "sexing_method_phenotypic",
+  "original_life_stage",
+  "maturity_stage",
+  "maturity_stage_scale",
+  "number_concordant_females",
+  "number_concordant_males",
+  "number_reversed_females",
+  "number_reversed_males",
+  "number_yy_ww",
+  "original_age",
+  "original_age_unit",
+  "original_body_size",
+  "original_body_size_type",
+  "original_body_size_unit",
+  "original_body_mass",
+  "original_body_mass_type",
+  "original_body_mass_unit",
+  "biological_scale",
+  "latitude_start",
+  "longitude_start",
+  "latitude_end",
+  "longitude_end",
+  "asl",
+  "location",
+  "date_start",
+  "date_end",
+  "day_start",
+  "day_end",
+  "month_start",
+  "month_end",
+  "year_start",
+  "year_end",
+  "time_start",
+  "time_end",
+  "surface_temperature",
+  "bottom_temperature",
+  "surface_salinity",
+  "bottom_salinity",
+  "capture_method"
+)
+
+
+tmp <- as.data.frame(matrix(NA, ncol = length(cols), nrow = nrow(final)))
+colnames(tmp) <- cols
+
+tmp$database <- "Barents Sea"
+tmp$reference_id <- final$reference_id
+tmp$original_row_identifier <- final$original_row_identifier
+
+tmp$original_binomial_name <- final$original_binomial_name
+tmp$number_female <- final$number_female
+tmp$number_male <- final$number_male
+tmp$n_total <- final$n_total
+tmp$biological_scale <- "Individual"
+
+tmp$original_body_size <- final$original_body_size
+tmp$original_body_size_type <- final$original_body_size_type
+tmp$original_body_size_unit <- final$original_body_size_unit
+
+tmp$original_body_mass <- final$original_body_mass
+tmp$original_body_mass_type <- final$original_body_mass_type
+tmp$original_body_mass_unit <- final$original_body_mass_unit
+
+tmp$asl <- -1 * final$asl
+
+tmp$longitude_start <- final$longitude_start
+tmp$latitude_start <- final$latitude_start
+tmp$longitude_end <- final$longitude_end
+tmp$latitude_end <- final$latitude_end
+
+tmp$day_start <- as.numeric(final$day_start)
+tmp$month_start <- as.numeric(final$month_start)
+tmp$year_start <- as.numeric(final$year_start)
+tmp$time_start <- final$date_start
+
+tmp$time_start <- final$date_start
+
+write.csv(tmp, here::here("outputs", "BARENTS.csv"), row.names = FALSE)
