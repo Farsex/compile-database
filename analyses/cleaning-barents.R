@@ -128,7 +128,7 @@ for (year in years) {
   tmp$"year_start" <- substr(individual$"date_start", 1, 4)
   tmp$"month_start" <- substr(individual$"date_start", 6, 7)
   tmp$"day_start" <- substr(individual$"date_start", 9, 10)
-  # tmp$"capture_method" <- ...
+  tmp$"capture_method" <- individual$"Gear"
 
   final <- rbind(final, tmp)
 }
@@ -220,6 +220,6 @@ tmp$month_start <- as.numeric(final$month_start)
 tmp$year_start <- as.numeric(final$year_start)
 tmp$time_start <- final$date_start
 
-tmp$time_start <- final$date_start
+tmp$capture_method <- final$capture_method
 
 write.csv(tmp, here::here("outputs", "BARENTS.csv"), row.names = FALSE)
