@@ -54,10 +54,9 @@ get_worms_info <- function(x) {
         "original_name" = x,
         "accepted_name" = NA,
         "aphia_id" = NA,
-        "kingdom" = NA,
-        "phylum" = NA,
         "class" = NA,
-        "order" = NA
+        "order" = NA,
+        "family" = NA
       )
     )
   }
@@ -99,9 +98,8 @@ get_worms_info <- function(x) {
     "original_name" = x,
     "accepted_name" = records[1, "valid_name"],
     "aphia_id" = records[1, "valid_AphiaID"],
-    "kingdom" = records[1, "kingdom"],
-    "phylum" = records[1, "phylum"],
     "class" = records[1, "class"],
-    "order" = records[1, "order"]
+    "order" = records[1, "order"],
+    "family" = records[1, "family"]
   )
 }
